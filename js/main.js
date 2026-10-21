@@ -17,6 +17,8 @@ function setConsent(value) {
 // раньше уже нажал «Отказаться».
 function loadMetrika() {
   if (window.ym) return;
+  // Локальные просмотры (проверка сайта на своём компьютере) в статистику не попадают
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
   (function (m, e, t, r, i, k, a) {
     m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
     m[i].l = 1 * new Date();
@@ -78,6 +80,22 @@ document.addEventListener('click', function (event) {
     banner.hidden = true;
     if (!accepted) disableMetrika();
   });
+})();
+
+// Плавное появление блоков при прокрутке
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!items.length || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.08 });
+  items.forEach(function (el) { observer.observe(el); });
 })();
 
 // Мобильное меню
