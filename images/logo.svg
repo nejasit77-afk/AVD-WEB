@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Наталья Авдеева — веб-аналитик</title>
+  <circle cx="32" cy="32" r="30" fill="#fc8a3c"/>
+  <polyline points="12,42 23,33 31,38 47,21" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="47" cy="21" r="5.5" fill="#1d1712" stroke="#ffffff" stroke-width="2.5"/>
+</svg>
