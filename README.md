@@ -47,6 +47,8 @@
 | `click_order` | Клик по любой кнопке «Заказать» / «Узнать подробнее». В параметре `service` — какая услуга |
 | `click_phone` | Клик по номеру телефона |
 | `click_email` | Клик по почте |
+| `click_telegram` | Клик по кнопке Telegram (в блоке контактов и «Бесплатная консультация 15 минут» на первом экране — у неё `service=hero_free_call`) |
+| `click_max` | Клик по кнопке MAX |
 
 Значения параметра `service`: `hero_audit`, `hero_free_call`, `sale_check`, `ux_review`, `year_report`, `templates`, `consultation`, `audit`, `setup`, `support`.
 
