@@ -12,7 +12,9 @@ function setConsent(value) {
   try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* приватный режим — просто не запоминаем */ }
 }
 
-// Подключение Метрики. Вызывается только после согласия посетителя.
+// Подключение Метрики. Счётчик запускается сразу при открытии страницы,
+// не дожидаясь ответа в cookie-баннере. Не запускается, только если посетитель
+// раньше уже нажал «Отказаться».
 function loadMetrika() {
   if (window.ym) return;
   (function (m, e, t, r, i, k, a) {
@@ -33,9 +35,14 @@ function loadMetrika() {
   });
 }
 
+// Отключение счётчика по запросу посетителя (штатный флаг Яндекс Метрики)
+function disableMetrika() {
+  window['disableYaCounter' + METRIKA_ID] = true;
+}
+
 // Отправка цели в Метрику. Если посетитель отказался от cookies, ничего не уходит.
 function reachGoal(goal, params) {
-  if (typeof window.ym === 'function') {
+  if (typeof window.ym === 'function' && getConsent() !== 'declined') {
     ym(METRIKA_ID, 'reachGoal', goal, params || {});
   }
 }
@@ -55,11 +62,12 @@ document.addEventListener('click', function (event) {
   var banner = document.getElementById('cookie');
   var consent = getConsent();
 
-  if (consent === 'accepted') {
-    loadMetrika();
+  if (consent === 'declined') {
+    disableMetrika();
     return;
   }
-  if (consent === 'declined' || !banner) return;
+  loadMetrika();
+  if (consent === 'accepted' || !banner) return;
 
   banner.hidden = false;
   banner.addEventListener('click', function (event) {
@@ -68,7 +76,7 @@ document.addEventListener('click', function (event) {
     var accepted = btn.dataset.cookie === 'accept';
     setConsent(accepted ? 'accepted' : 'declined');
     banner.hidden = true;
-    if (accepted) loadMetrika();
+    if (!accepted) disableMetrika();
   });
 })();
 
