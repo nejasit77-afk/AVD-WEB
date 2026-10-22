@@ -125,7 +125,7 @@ b { font-weight: 800; }
   background: var(--accent); transform: rotate(-6deg);
 }
 .hero__photo {
-  position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%;
+  position: relative; width: 100%; height: auto;
   border-radius: 28px; box-shadow: var(--shadow-lg); border: 6px solid rgba(255, 255, 255, .9);
 }
 .float {
@@ -135,8 +135,9 @@ b { font-weight: 800; }
   animation: float 6s ease-in-out infinite;
 }
 .float b { display: block; font-size: 14px; }
-.float--a { left: -14%; top: 14%; }
-.float--b { right: -10%; bottom: 10%; animation-delay: -3s; }
+/* Плашки стоят на краях фото (над верхним краем и на уровне одежды), чтобы не закрывать лицо */
+.float--a { left: -16%; top: -5%; }
+.float--b { right: -12%; bottom: 3%; animation-delay: -3s; }
 .float__icon { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: #e7f7ee; color: #1f8a4c; flex-shrink: 0; }
 .float__icon--warn { background: #fdeceb; color: #d23b2f; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -196,7 +197,7 @@ b { font-weight: 800; }
 /* Обо мне */
 .about { display: grid; grid-template-columns: 420px 1fr; gap: 64px; align-items: center; }
 .about__media { position: relative; }
-.about__photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 28px; }
+.about__photo { width: 100%; height: auto; border-radius: 28px; }
 .about__media::before {
   content: ""; position: absolute; inset: 24px -24px -24px 24px; border: 2px solid var(--accent); border-radius: 28px; z-index: 0;
 }
@@ -268,6 +269,9 @@ b { font-weight: 800; }
 .price__note { display: flex; gap: 12px; font-size: 15px; background: rgba(255, 255, 255, .07); border-radius: var(--radius-sm); padding: 14px 16px; color: rgba(255, 255, 255, .85); }
 .price__note .ico { color: var(--accent); margin-top: 2px; }
 .price .btn { margin-top: auto; align-self: flex-start; }
+.price--wide { grid-column: 1 / -1; border: 2px solid var(--accent); }
+.price__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.price__cols > div { display: flex; flex-direction: column; }
 
 /* Инструменты */
 .chips { list-style: none; padding: 0; margin: 40px auto 0; max-width: 900px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
@@ -347,9 +351,7 @@ b { font-weight: 800; }
 /* Адаптив */
 @media (max-width: 1024px) {
   .hero__inner { grid-template-columns: 1fr; }
-  .hero__visual { width: min(360px, 80%); margin-top: 12px; }
-  .float--a { left: -18%; }
-  .float--b { right: -16%; }
+  .hero__visual { width: min(360px, 80%); margin-top: 40px; }
   .pains { grid-template-columns: 1fr 1fr; }
   .grid--3 { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
@@ -367,9 +369,10 @@ b { font-weight: 800; }
   .hero__facts { gap: 16px 28px; }
   .hero__facts b { font-size: 22px; }
   .float { font-size: 12px; padding: 10px 12px; max-width: 200px; }
-  .float--a { left: -6%; top: 6%; }
-  .float--b { right: -6%; bottom: 6%; }
-  .grid--2, .grid--3, .pains, .steps, .prices { grid-template-columns: 1fr; }
+  .float--a { left: -8%; top: -9%; }
+  .float--b { right: -8%; bottom: -6%; }
+  .grid--2, .grid--3, .pains, .steps, .prices, .price__cols { grid-template-columns: 1fr; }
+  .price__cols { gap: 8px; }
   .hero__visual { width: min(270px, 72%); }
   .about__media { max-width: 300px; }
   .steps li { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; }
