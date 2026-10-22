@@ -52,6 +52,21 @@
 
 Значения параметра `service`: `hero_audit`, `hero_free_call`, `pains_cta` (оранжевая карточка «Узнали свою ситуацию?»), `sale_check`, `ux_review`, `year_report`, `checklist` (кнопка «Получить чек-лист» — цель `click_telegram`), `consultation`, `audit`, `setup`, `support`, `calls_review` (разбор звонков и переписок), `prices_free_call` (карточка «Не знаете, что выбрать?» в ценах — цель `click_telegram`).
 
+## SEO и ИИ-ассистенты
+
+| Что | Где |
+|---|---|
+| Заголовок и описание для поиска | `<title>` и `<meta name="description">` в начале `index.html` |
+| Структурированные данные (услуги, цены, контакты, сертификаты) | блок `application/ld+json` в `<head>` `index.html` |
+| Частые вопросы | секция `id="faq"` и блок `FAQPage` сразу под ней — тексты дублируются, правьте в обоих местах |
+| Карта сайта | `sitemap.xml` (обновите `lastmod` при крупных правках) |
+| Краткая справка для ИИ-ассистентов | `llms.txt` |
+| Правила для роботов | `robots.txt` |
+
+**Если поменяли цены или контакты** — обновите их на странице, в блоке `ld+json`, в FAQ и в `llms.txt`.
+
+**После покупки своего домена** замените `https://nejasit77-afk.github.io/avd-web/` на новый адрес в `index.html` (canonical, og:url, og:image, `ld+json`), `sitemap.xml`, `robots.txt` и `llms.txt`. Пока сайт живёт в подпапке github.io, поисковики не читают `robots.txt` из неё (они ищут его в корне домена), поэтому карту сайта нужно отправить вручную в Google Search Console.
+
 ## Как менять тексты
 
 Все тексты лежат в `index.html` — откройте файл на GitHub, нажмите на карандаш (**Edit**), поправьте текст и нажмите **Commit changes**. Сайт обновится через 1–2 минуты.
