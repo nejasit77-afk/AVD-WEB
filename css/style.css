@@ -208,6 +208,7 @@ b { font-weight: 800; }
   font-size: 14px; font-weight: 700; line-height: 1.35;
 }
 .about__badge .ico { width: 32px; height: 32px; color: var(--accent); }
+.about__badge a { white-space: nowrap; }
 .about__text .kicker { text-align: left; color: var(--accent); }
 .about__role { color: rgba(255, 255, 255, .7); margin-top: -.4em; }
 .about__text p { color: rgba(255, 255, 255, .88); }
@@ -381,7 +382,7 @@ b { font-weight: 800; }
   .offer, .who, .case, .price { padding: 26px; }
   .about__media::before { inset: 16px -12px -16px 12px; }
   /* На телефоне плашка с сертификатами уходит под фото, чтобы не закрывать лицо */
-  .about__badge { left: 12px; right: 12px; bottom: auto; top: calc(100% - 20px); }
+  .about__badge { left: -12px; right: -12px; bottom: auto; top: calc(100% - 20px); }
   .about__media { margin-bottom: 110px; }
   .header__burger { display: block; }
   .header__nav {
