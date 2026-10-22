@@ -50,7 +50,7 @@
 | `click_telegram` | Клик по кнопке Telegram (в блоке контактов и «Бесплатная консультация 15 минут» на первом экране — у неё `service=hero_free_call`) |
 | `click_max` | Клик по кнопке MAX |
 
-Значения параметра `service`: `hero_audit`, `hero_free_call`, `pains_cta` (оранжевая карточка «Узнали свою ситуацию?»), `sale_check`, `ux_review`, `year_report`, `templates`, `consultation`, `audit`, `setup`, `support`.
+Значения параметра `service`: `hero_audit`, `hero_free_call`, `pains_cta` (оранжевая карточка «Узнали свою ситуацию?»), `sale_check`, `ux_review`, `year_report`, `checklist` (кнопка «Получить чек-лист» — цель `click_telegram`), `consultation`, `audit`, `setup`, `support`.
 
 ## Как менять тексты
 
