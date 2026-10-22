@@ -252,7 +252,7 @@ b { font-weight: 800; }
 .steps p { color: var(--muted); font-size: 15px; }
 
 /* Цены */
-.prices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; align-items: start; }
+.prices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; align-items: stretch; }
 .price { background: #fff; border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow); display: flex; flex-direction: column; position: relative; border: 1px solid var(--line); }
 .price--hit { background: var(--dark); color: #fff; border-color: var(--dark); box-shadow: var(--shadow-lg); }
 .price--hit .checks li::before { background-color: rgba(252, 138, 60, .2); }
@@ -269,9 +269,10 @@ b { font-weight: 800; }
 .price__note { display: flex; gap: 12px; font-size: 15px; background: rgba(255, 255, 255, .07); border-radius: var(--radius-sm); padding: 14px 16px; color: rgba(255, 255, 255, .85); }
 .price__note .ico { color: var(--accent); margin-top: 2px; }
 .price .btn { margin-top: auto; align-self: flex-start; }
-.price--wide { grid-column: 1 / -1; border: 2px solid var(--accent); }
-.price__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.price__cols > div { display: flex; flex-direction: column; }
+.price--new { border: 2px solid var(--accent); }
+.price--ask { background: rgba(252, 138, 60, .1); border-color: rgba(252, 138, 60, .35); box-shadow: none; justify-content: center; }
+.price--ask .btn { margin-top: 24px; }
+.price--ask .price__value { color: var(--accent-dark); }
 
 /* Инструменты */
 .chips { list-style: none; padding: 0; margin: 40px auto 0; max-width: 900px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
@@ -371,8 +372,7 @@ b { font-weight: 800; }
   .float { font-size: 12px; padding: 10px 12px; max-width: 200px; }
   .float--a { left: -8%; top: -9%; }
   .float--b { right: -8%; bottom: -6%; }
-  .grid--2, .grid--3, .pains, .steps, .prices, .price__cols { grid-template-columns: 1fr; }
-  .price__cols { gap: 8px; }
+  .grid--2, .grid--3, .pains, .steps, .prices { grid-template-columns: 1fr; }
   .hero__visual { width: min(270px, 72%); }
   .about__media { max-width: 300px; }
   .steps li { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; }
