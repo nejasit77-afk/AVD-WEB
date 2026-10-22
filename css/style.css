@@ -380,7 +380,9 @@ b { font-weight: 800; }
   .steps h3 { margin: 10px 0 .4em; }
   .offer, .who, .case, .price { padding: 26px; }
   .about__media::before { inset: 16px -12px -16px 12px; }
-  .about__badge { left: 8px; bottom: 16px; }
+  /* На телефоне плашка с сертификатами уходит под фото, чтобы не закрывать лицо */
+  .about__badge { left: 12px; right: 12px; bottom: auto; top: calc(100% - 20px); }
+  .about__media { margin-bottom: 110px; }
   .header__burger { display: block; }
   .header__nav {
     display: none; position: absolute; top: 68px; left: 0; right: 0;
