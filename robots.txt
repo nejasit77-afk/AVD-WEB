@@ -1,3 +1,21 @@
 User-agent: *
 Allow: /
 Disallow: /privacy.html
+
+# ИИ-ассистенты: разрешаем читать сайт, чтобы они могли рекомендовать услуги
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://nejasit77-afk.github.io/avd-web/sitemap.xml
