@@ -41,6 +41,7 @@ b { font-weight: 800; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
 .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+.container--narrow { max-width: 860px; }
 
 .ico {
   width: 22px; height: 22px; flex-shrink: 0;
@@ -274,6 +275,21 @@ b { font-weight: 800; }
 .price--ask { background: rgba(252, 138, 60, .1); border-color: rgba(252, 138, 60, .35); box-shadow: none; justify-content: center; }
 .price--ask .btn { margin-top: 24px; }
 .price--ask .price__value { color: var(--accent-dark); }
+
+/* Частые вопросы */
+.faq { margin-top: 40px; display: grid; gap: 12px; }
+.faq details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 20px 56px 20px 24px; font-weight: 800; font-size: 17px; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent-dark); font-size: 20px; font-weight: 700;
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p { padding: 0 24px 20px; margin: 0; color: var(--muted); }
 
 /* Инструменты */
 .chips { list-style: none; padding: 0; margin: 40px auto 0; max-width: 900px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
